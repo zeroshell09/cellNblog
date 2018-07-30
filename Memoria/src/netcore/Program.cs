@@ -15,16 +15,14 @@ namespace netcore
         static async Task Main(string[] args)
         {
             var source = new CancellationTokenSource();
-            var model = await new MemoriaAgent().Build(source.Token);
+            var model = await MemoriaAgent.Build(source.Token);
             var evaluation = await model.Evaluate();
 
-            Console.WriteLine($" Rms : {evaluation.Rms}");
+            Console.WriteLine($" Root Mean Square Error : {evaluation.Rms}");
             Console.WriteLine($" Coef of determination : {evaluation.RSquared}");
-            Console.WriteLine("Testing mode with single prediction:");
 
             var test = new Sell
             {
-
                 Temperature = 7,
                 Age = 72,
                 TreatedProbability = 0.7741935483870968f,
