@@ -1,7 +1,7 @@
 using System;
 using Microsoft.ML.Runtime.Api;
 
-namespace blogs.memoria.ml.model {
+namespace blogs.memoria.ml.model.core {
 
     public class Sell {
 
