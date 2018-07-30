@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+     <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="microsoft.extensions.Configuration.json" Version="2.1.1" />
+    <PackageReference Include="microsoft.ml" Version="0.3.0" />
+  </ItemGroup>
+
+</Project>
