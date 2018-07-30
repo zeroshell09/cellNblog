@@ -16,9 +16,19 @@ namespace blogs.memoria.helpers
                    .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
         }
-        public static string LoadInputDataSet()
+        public static string LoadTrainDataSet()
         {
-            return Path.Combine("..","..",Configuration["model:datapath"]);
+            return Path.Combine("..","..",Configuration["model:train"]);
+        }
+
+         public static string LoadTestDataSet()
+        {
+            return Path.Combine("..","..",Configuration["model:train"]);
+        }
+
+        internal static string LoadStorePath()
+        {
+            return Path.Combine("..","..",Configuration["model:output:path"]);
         }
     }
 }
