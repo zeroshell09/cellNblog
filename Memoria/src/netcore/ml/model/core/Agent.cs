@@ -22,6 +22,7 @@ namespace blogs.memoria.ml.model.core
                 pipeline.Add(new ColumnCopier(("Amount", "Label"))); //Sect Column of interest (Y)
                 pipeline.Add(new ColumnConcatenator("Features", "Age", "CityCode", "Temperature", "TreatedProbability")); //select features (X)
                 pipeline.Add(new FastTreeRegressor()); // Select Learning algorithm
+
                 return pipeline.Train<Sell, SellPrediction>();
             });
         }
