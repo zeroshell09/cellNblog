@@ -28,7 +28,7 @@ namespace blogs.memoria.ml
 
     }
 
-    public static class AgentExtention{
+    public static class AgentExtentions{
 
         public static Task<RegressionMetrics> Evaluate(this PredictionModel<Sell, SellPrediction> model)
         {
