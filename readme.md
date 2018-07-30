@@ -1,1 +1,1 @@
-This repo contains source of my all by blogs on https;//blog.Cellenza.com
+This repo contains source of my all by blogs on https://blog.Cellenza.com
