@@ -1,0 +1,1 @@
+This .NET core project use ML.NET to predict Memoria Sells. To learn more about the blog post, check out this link: https://blog.cellenza.com/data/ia-machine-learning-creer-des-agents-intelligents/
