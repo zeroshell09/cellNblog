@@ -37,14 +37,12 @@ namespace netcore
                 Console.WriteLine($"Prediction is {prediction.Amount}");
 
                 Console.WriteLine($"Saving the model...");
-                await model.SaveAsync();
+                await model.SaveAsync(source.Token);
 
                 Console.WriteLine($"Reloading the model...");
                 var loadedModel = await PredictionModel.ReadAsync<Sell, SellPrediction>(Files.LoadStorePath());
                 prediction = loadedModel.Predict(test);
                 Console.WriteLine($"Prediction using previous test data is {prediction.Amount}");
-
-
             }
         }
     }

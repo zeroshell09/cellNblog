@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using blogs.memoria.helpers;
 using blogs.memoria.ml.model.core;
@@ -20,8 +21,9 @@ namespace blogs.memoria.ml.model.ext
             });
         }
 
-        public static Task SaveAsync(this PredictionModel<Sell, SellPrediction> model)
+        public static Task SaveAsync(this PredictionModel<Sell, SellPrediction> model,CancellationToken token)
         {
+            token.ThrowIfCancellationRequested();
             return model.WriteAsync(Files.LoadStorePath());
         }
     }

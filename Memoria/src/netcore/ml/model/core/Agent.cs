@@ -17,12 +17,22 @@ namespace blogs.memoria.ml.model.core
         {
             return Task.Factory.StartNew(() =>
             {
-                var pipeline = new LearningPipeline();
-                pipeline.Add(new TextLoader(Files.LoadTrainDataSet()).CreateFrom<Sell>(useHeader: true, separator: ',')); //Load data
-                pipeline.Add(new ColumnCopier(("Amount", "Label"))); //Sect Column of interest (Y)
-                pipeline.Add(new ColumnConcatenator("Features", "Age", "CityCode", "Temperature", "TreatedProbability")); //select features (X)
-                pipeline.Add(new FastTreeRegressor()); // Select Learning algorithm
+                //Creattion du pipeline
+                var pipeline = new LearningPipeline(); 
 
+                //Chargement du fichier d'entrainement
+                pipeline.Add(new TextLoader(Files.LoadTrainDataSet()).CreateFrom<Sell>(useHeader: true, separator: ',')); //Load data
+                
+                //Selection de la colonne à prédire (Y)
+                pipeline.Add(new ColumnCopier(("Amount", "Label"))); 
+
+                //Selection des colonnes aidant à prédire (X)
+                pipeline.Add(new ColumnConcatenator("Features", "Age", "CityCode", "Temperature", "TreatedProbability")); //select features (X)
+                
+                //Selection de l'algorithme utilisé pour la prédiction
+                pipeline.Add(new FastTreeRegressor()); 
+
+                //Lancement du processus d'entrainement
                 return pipeline.Train<Sell, SellPrediction>();
             });
         }

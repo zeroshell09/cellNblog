@@ -1,2 +1,4 @@
 src/netcore/bin/*
 src/netcore/obj/*
+.DS_Store
+.vscode/*
